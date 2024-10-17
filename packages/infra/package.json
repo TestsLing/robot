@@ -1,0 +1,32 @@
+{
+  "name": "infra",
+  "version": "0.1.0",
+  "license": "MIT",
+  "bin": {
+    "reinvent-genai-chess-robot": "bin/reinvent-genai-chess-robot.js"
+  },
+  "scripts": {
+    "postinstall": "python3 -m pip install -r lib/StepFunction/genaiNewMovePackages/requirements.txt -t lib/StepFunction/genaiNewMovePackages/python",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.28",
+    "aws-cdk": "^2.133.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "@aws-amplify/graphql-api-construct": "^1.9.0-gen2-release-0416.0",
+    "@aws-cdk/aws-amplify-alpha": "^2.133.0-alpha.0",
+    "@aws-cdk/aws-cognito-identitypool-alpha": "^2.136.0-alpha.0",
+    "@aws-cdk/aws-iot-actions-alpha": "^2.133.0-alpha.0",
+    "@aws-cdk/aws-iot-alpha": "^2.133.0-alpha.0",
+    "@aws-cdk/aws-lambda-python-alpha": "^2.133.0-alpha.0",
+    "@cdklabs/generative-ai-cdk-constructs": "^0.1.90",
+    "aws-cdk-lib": "^2.133.0",
+    "constructs": "^10.3.0",
+    "source-map-support": "^0.5.21"
+  }
+}
