@@ -1,0 +1,17 @@
+{
+  "name": "genai-chess-demo",
+  "version": "2.0.0",
+  "author": "Patrick O'Connor <ocopatr@amazon.com>",
+  "description": "Deploy a virtual or robot arm controlled game of chess using AWS AI/IoT services.",
+  "license": "MIT",
+  "scripts": {
+    "wizard": "pnpm --filter wizard setup",
+    "dev": "pnpm --filter webapp dev",
+    "graphql": "pnpm --filter webapp graphql",
+    "cdk": "pnpm --filter infra cdk"
+  },
+  "dependencies": {
+    "infra": "link:packages/infra",
+    "webapp": "link:packages/webapp"
+  }
+}
