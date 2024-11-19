@@ -1,0 +1,26 @@
+version: 1
+
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use 18
+        - yarn
+        - sed "s/@function.*//g" packages/infra/schema.graphql > packages/amplify-ui/schema.graphql
+        - cd packages/amplify-ui
+        - amplify codegen
+    build:
+      commands:
+        - echo "VITE_AWS_REGION=$REGION" > .env
+        - echo "VITE_APPSYNCAPI=$APPSYNC_API" >> .env
+        - echo "VITE_USERPOOLID=$USER_POOL_ID" >> .env
+        - echo "VITE_IDENTITYPOOLID=$IDENTITY_POOL_ID" >> .env
+        - echo "VITE_USERPOOLCLIENTID=$USER_POOL_CLIENT_ID" >> .env
+        - yarn run build
+  artifacts:
+    baseDirectory: ./packages/amplify-ui/dist
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
